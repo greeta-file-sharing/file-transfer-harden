@@ -196,7 +196,7 @@ public class FilesApiController implements FilesApi {
         this.repository.save(fileRecord);
 
         String fileName = fileId + "." + extension;
-        this.storageService.upload(bucketName, fileName, new BufferedInputStream(file.getInputStream()));
+        this.storageService.upload(fileName, bucketName, new BufferedInputStream(file.getInputStream()));
 
         return new ResponseEntity<String>(HttpStatus.CREATED);
     }
